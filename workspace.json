@@ -3,6 +3,7 @@
   "projects": {
     "api": "apps/api",
     "api-e2e": "apps/api-e2e",
+    "backend": "apps/backend",
     "bepay-mono": "apps/bepay-mono",
     "bepay-mono-e2e": "apps/bepay-mono-e2e",
     "components": "libs/components",
