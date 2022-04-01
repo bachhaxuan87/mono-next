@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "api": "apps/api",
+    "api-e2e": "apps/api-e2e",
     "bepay-mono": "apps/bepay-mono",
     "bepay-mono-e2e": "apps/bepay-mono-e2e",
     "components": "libs/components",
