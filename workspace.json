@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "projects": {
+    "bepay-mono": "apps/bepay-mono",
+    "bepay-mono-e2e": "apps/bepay-mono-e2e",
+    "components": "libs/components",
+    "lending": "apps/lending",
+    "lending-e2e": "apps/lending-e2e",
+    "market": "apps/market",
+    "market-e2e": "apps/market-e2e",
+    "models": "libs/models",
+    "my-lib": "libs/my-lib",
+    "my-new-app": "apps/my-new-app",
+    "my-new-app-e2e": "apps/my-new-app-e2e"
+  }
+}
