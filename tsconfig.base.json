@@ -15,9 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-nextjs-monorepo/components": ["libs/components/src/index.ts"],
-      "@nx-nextjs-monorepo/models": ["libs/models/src/index.ts"],
-      "@nx-nextjs-monorepo/my-lib": ["libs/my-lib/src/index.ts"]
+      "@api/*": ["apps/api/*"],
+      "@libs/models": ["libs/models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

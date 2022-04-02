@@ -1,5 +1,5 @@
 {
-  "npmScope": "nx-nextjs-monorepo",
+  "npmScope": "bepay-dashboard",
   "affected": {
     "defaultBase": "main"
   },
@@ -42,5 +42,5 @@
       }
     }
   },
-  "defaultProject": "bepay-mono"
+  "defaultProject": "api"
 }
