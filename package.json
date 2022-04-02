@@ -6,6 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "vercel-build": "npx prisma generate --schema libs/prisma/schema.prisma & npx nx build api --prod",
     "prisma-merge": "npx prisma-merge -s libs/prisma/*.prisma -o libs/prisma/schema.prisma -b libs/prisma/base.prisma",
     "prisma-gen": "prisma generate --schema libs/prisma/schema.prisma",
     "prisma-build": "npx prisma-merge -s libs/prisma/*.prisma -o libs/prisma/schema.prisma -b libs/prisma/base.prisma & prisma generate --schema libs/prisma/schema.prisma"
