@@ -11,6 +11,40 @@ datasource db {
 }
 
 
+enum CREDIT_STATUS {
+    NOT_VERIFY
+    SUBMITTED
+    VERIFYING
+    VERIFIED
+    REJECTED
+}
+
+enum SELLER_STATUS {
+    NOT_VERIFY
+    SUBMITTED
+    VERIFYING
+    VERIFIED
+    REJECTED
+}
+
+model Account {
+  id              String
+  displayName     String?
+  image           String?
+  cover           String?
+  video           String?
+  bio             String?
+  links           Json?
+  creditStatus    CREDIT_STATUS   @default(NOT_VERIFY)
+  creditLimit     Decimal         @default(0)
+  sellerStatus    SELLER_STATUS   @default(NOT_VERIFY)
+  commissionFee   Decimal         @default(0)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  @@unique([id])
+}
+
+
 model ExchangeRate {
   chain       String
   contract    String

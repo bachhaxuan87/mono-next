@@ -3,6 +3,7 @@
   "projects": {
     "api": "apps/api",
     "api-e2e": "apps/api-e2e",
+    "backend": "apps/backend",
     "lending": "apps/lending",
     "lending-e2e": "apps/lending-e2e",
     "market": "apps/market",
