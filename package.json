@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "build-api": "copyfiles -f apps/api/vercel.json . & npx prisma generate --schema libs/prisma/schema.prisma & npx nx build api --prod",
+    "build-api": "copyfiles -f apps/api/test.json . & npx prisma generate --schema libs/prisma/schema.prisma & npx nx build api --prod",
     "test": "nx test",
     "prisma-merge": "npx prisma-merge -s libs/prisma/*.prisma -o libs/prisma/schema.prisma -b libs/prisma/base.prisma",
     "prisma-gen": "npx prisma generate --schema libs/prisma/schema.prisma",
