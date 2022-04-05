@@ -17,7 +17,7 @@ export class AccountService {
     const account = await AccountRepo.upsert(address);
     return jwt.sign({
       data: {
-        id: account.id,
+        uid: account.id,
         canPay4: account.creditStatus === CREDIT_STATUS.VERIFIED,
         canSell: account.sellerStatus === SELLER_STATUS.VERIFIED
       }

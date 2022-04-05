@@ -37,8 +37,7 @@ class UserHandler {
    // }
 
    @Post()
-   createUser( @Body() body: CreateUserDTO) {
-    validateRequest(body as any);
+   createUser( @Body(ValidationPipe) body: CreateUserDTO) {
       return body;
    }
 }

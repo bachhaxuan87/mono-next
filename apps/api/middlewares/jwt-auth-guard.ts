@@ -1,6 +1,6 @@
 import { createMiddlewareDecorator, NextFunction, UnauthorizedException } from "@storyofams/next-api-decorators";
 import { NextApiRequest, NextApiResponse } from "next";
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 import { getConfig } from "@api/utils";
 
 export type Session = {
@@ -13,17 +13,16 @@ export type NextApiRequestWithSession = NextApiRequest & {
 
 export const JwtAuthGuard = createMiddlewareDecorator(
   (req: NextApiRequestWithSession, res: NextApiResponse, next: NextFunction) => {
-    // try {
-    //   const authorization = req.headers.authorization;
-    //   if (authorization && authorization.startsWith('Bearer ')) {
-    //     const token = authorization.split('Bearer ')[1];
-    //     const decoded = jwt.verify(token, getConfig('TOKEN_SECRET'));
-    //     req.rawHeaders["Referer"] = "cccccccccccc";
-    //   }
-    // } catch(err) {
-    //   return next(new UnauthorizedException("Access is denied."));
-    // }
-    req.session = { uid: "ccc" };
+    try {
+      const authorization = req.headers.authorization;
+      if (authorization && authorization.startsWith('Bearer ')) {
+        const token = authorization.split('Bearer ')[1];
+        const decoded = jwt.verify(token, getConfig('TOKEN_SECRET')) as JwtPayload;
+        req.headers["user-id"] = decoded.data.uid;
+      }
+    } catch(err) {
+      return next(new UnauthorizedException(err));
+    }
     next();
   }
 );

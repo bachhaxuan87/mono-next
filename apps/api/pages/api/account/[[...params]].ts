@@ -2,8 +2,7 @@ import { createHandler, Body, Post, Put, Get, ValidationPipe, Param, createMiddl
 import { AccountService } from '@api/services';
 import { JwtAuthGuard } from '@api/middlewares';
 import { SignInRequest, UpdateProfileRequest } from '@libs/models';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { NextApiRequestWithSession } from '@api/middlewares/jwt-auth-guard';
+import { UserId } from '@api/decorators';
 
 
 class AccountHandler {
@@ -19,23 +18,18 @@ class AccountHandler {
 
   @Post('/sign-in')
   async signIn(@Body() request: SignInRequest) {
-    // return request;
     return AccountService.signIn(request);
   }
 
-  @Put('/:id')
+  @Put('/profile')
   @JwtAuthGuard()
-  async update(req: NextApiRequestWithSession, @Header('hehe') referer: string, @Param('id') id: string, @Body() request: UpdateProfileRequest) {
-    // return request;
-    return {session: req.session}
-    return AccountService.update(id, request);
+  async update(@UserId() uid: string, @Body(ValidationPipe) request: UpdateProfileRequest) {
+    return AccountService.update(uid, request);
   }
 
   @Get('/:id')
   async getById(@Param('id') id: string) {
-    console.log(id);
-    // return request;
-    return AccountService.getById(id);
+    return {id: id};
   }
 }
 

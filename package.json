@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "build-api": "copyfiles -f apps/api/vercel.json . & npx prisma generate --schema libs/prisma/schema.prisma & npx nx build api --prod",
     "test": "nx test",
     "prisma-merge": "npx prisma-merge -s libs/prisma/*.prisma -o libs/prisma/schema.prisma -b libs/prisma/base.prisma",
     "prisma-gen": "npx prisma generate --schema libs/prisma/schema.prisma",
@@ -24,6 +25,7 @@
     "@types/jsonwebtoken": "^8.5.8",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "copyfiles": "^2.4.1",
     "core-js": "^3.6.5",
     "eth-sig-util": "^3.0.1",
     "ethereumjs-util": "^7.1.4",
