@@ -24,7 +24,7 @@
     "core-js": "^3.6.5",
     "eth-sig-util": "^3.0.1",
     "ethereumjs-util": "^7.1.4",
-    "ipfs-http-client": "^56.0.1",
+    "ipfs-http-client": "^48.2.2",
     "jsonwebtoken": "^8.5.1",
     "moralis": "^1.5.8",
     "next": "12.1.0",
