@@ -23,6 +23,8 @@ class AccountHandler {
   @Get('/:id')
   async getById(@Param('id') id: string) {
     await delay(+id);
+
+    return id;
   }
 }
 
