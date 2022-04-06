@@ -9,19 +9,21 @@ import { getConfig } from '@api/utils';
 import { UpdateProfileRequest } from '@libs/models';
 
 
-export class AccountService {
+class AccountService {
   async signIn(request: SignInRequest) {
     const msgBufferHex = ethUtil.bufferToHex(Buffer.from(request.message, 'utf8'));
     const address = sigUtil.recoverPersonalSignature({ data: msgBufferHex, sig: request.signature });
 
     const account = await AccountRepo.upsert(address);
-    return jwt.sign({
+    const token = jwt.sign({
       data: {
         uid: account.id,
         canPay4: account.creditStatus === CREDIT_STATUS.VERIFIED,
         canSell: account.sellerStatus === SELLER_STATUS.VERIFIED
       }
-    }, getConfig('TOKEN_SECRET'), { expiresIn: getConfig('TOKEN_LIFE_TIME') });;
+    }, getConfig('TOKEN_SECRET'), { expiresIn: getConfig('TOKEN_LIFE_TIME') });
+
+    return { token };
   }
 
   async update(id: string, request: UpdateProfileRequest) {
@@ -33,5 +35,4 @@ export class AccountService {
   }
 }
 
-const service = new AccountService();
-export { service };
+export default new AccountService();

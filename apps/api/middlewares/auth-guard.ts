@@ -11,7 +11,7 @@ export type NextApiRequestWithSession = NextApiRequest & {
   session: Session
 }
 
-export const JwtAuthGuard = createMiddlewareDecorator(
+export const AuthGuard = createMiddlewareDecorator(
   (req: NextApiRequestWithSession, res: NextApiResponse, next: NextFunction) => {
     try {
       const authorization = req.headers.authorization;

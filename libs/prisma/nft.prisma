@@ -9,6 +9,7 @@ model Nft {
   priceUsd      Int?
   status        Int @default(0)
   numberOfView  Int @default(0)
+  collection    NftCollection? @relation(fields: [chain, contract], references: [chain, contract], onUpdate: NoAction)
   makeQuotes    Quote[] @relation("makeNft")
   takeQuotes    Quote[] @relation("takeNft")
   createdAt     DateTime @default(now())

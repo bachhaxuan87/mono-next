@@ -43,5 +43,4 @@ class AccountRepo {
   }
 }
 
-const repo = new AccountRepo();
-export { repo };
+export default new AccountRepo();

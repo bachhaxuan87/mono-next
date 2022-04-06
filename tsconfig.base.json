@@ -14,8 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@api/*": ["apps/api/*"],
+      "@backend/*": ["libs/backend/src/*"],
       "@libs/models": ["libs/models/src/index.ts"]
     }
   },
