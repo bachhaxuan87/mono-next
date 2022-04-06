@@ -6,6 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "build-api": "copyfiles -f apps/api/test.json . & npx prisma generate --schema libs/prisma/schema.prisma & npx nx build api --prod",
+    "build-internal": "copyfiles -f apps/internal-api/vercel.json . & npx nx build internal-api --prod",
     "test": "nx test",
     "prisma-build": "npx prisma-merge -s libs/prisma/*.prisma -o libs/prisma/schema.prisma -b libs/prisma/base.prisma & npx prisma generate --schema libs/prisma/schema.prisma",
     "prisma-push": "npx prisma-merge -s libs/prisma/*.prisma -o libs/prisma/schema.prisma -b libs/prisma/base.prisma & npx prisma generate --schema libs/prisma/schema.prisma & npx prisma db push --schema libs/prisma/schema.prisma"
